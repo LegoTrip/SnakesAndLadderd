@@ -1,0 +1,64 @@
+<html>
+<head>
+  <title>SNAKES AND FUCKING LADDERS</title>
+  <link rel="stylesheet" type="text/css" href="stylesheets/freakystylie.css">
+</head>
+<body>
+
+</div>
+
+<div class="boardwrapper">
+  <div id="player1token" class="playertoken" ></div>
+  <div id="player2token" class="playertoken" ></div>
+</div>
+
+<div class="controlswrapper">
+
+  <div class="playercontrol player1control">
+    <img src="images/pigplayer.png"><br />
+    <h2>PLAYER 1</h2>
+    <input id="player1dicebtn" type="button" value="Roll Dice" onclick="document.getElementById('player2dicebtn').disabled=false;DiceRollPlayer('1')">
+    <!--onclick="Player1DiceRoll();EitherDiceRoll();-->
+    <div class="dicebox">
+      <div id="player1diceoutput">
+          Dice output
+      </div>
+    </div>
+
+    <div class="movementbox">
+      <div>
+        MOVEMENT:
+      </div>
+      <div id="player1movementoutput">
+          Movement output
+      </div>
+    </div>
+  </div>
+
+  <div class="playercontrol player2control">
+    <img src="images/koalaplayer.png"><br />
+    <h2>PLAYER 2</h2>
+    <input id="player2dicebtn" type="button" value="Roll Dice" onclick="document.getElementById('player1dicebtn').disabled=false;DiceRollPlayer('2')">
+    <div class="dicebox">
+      <div id="player2diceoutput">
+          Dice output
+      </div>
+    </div>
+
+    <div class="movementbox">
+      <div>
+        MOVEMENT:
+      </div>
+      <div id="player2movementoutput">
+          Movement output
+      </div>      
+    </div>
+  </div>
+
+</div>
+
+
+<script src="js/prescription_labs.js"></script>
+</body>
+</html>
+

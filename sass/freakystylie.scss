@@ -1,0 +1,77 @@
+
+.boardwrapper { //PROBABLY TEMPORARY
+  position:relative;
+  width:800px;
+  height: 669px;
+  float: left;
+  background-image:url('../images/snakesladders.jpg');
+  background-size: 800px;
+  .playertoken {
+    width:135px; 
+    height:135px;     
+    position:absolute; 
+    bottom: 0; 
+    left: 0;
+    transition:all 0.3s linear;
+    &.moveto1, &.moveto12, &.moveto13, &.moveto24, &.moveto25 {
+      left: 0px;
+    }
+    &.moveto2, &.moveto11, &.moveto14, &.moveto23, &.moveto26 {
+      left: 130px;
+    }
+    &.moveto3, &.moveto10, &.moveto15, &.moveto22, &.moveto27 {
+      left: 260px;
+    }
+    &.moveto4, &.moveto9, &.moveto16, &.moveto21, &.moveto28 {
+      left: 390px;
+    }
+    &.moveto5, &.moveto8, &.moveto17, &.moveto20, &.moveto29 {
+      left: 520px;
+    }
+    &.moveto6, &.moveto7, &.moveto18, &.moveto19, &.moveto30 {
+      left: 650px;
+    }
+  }
+  #player1token {
+    background-image:url('../images/pigplayer.png');    
+  }
+  #player2token {
+    background-image:url('../images/koalaplayer.png');
+  }
+}
+
+.controlswrapper {
+  font-family:Futura, ‘Century Gothic’, AppleGothic, sans-serif;
+  font-size: 0.8em;
+  float:left;
+  .playercontrol {
+    text-align: center;
+    background-color:yellow;
+    width:300px;
+    font-size:2em;
+    h2 {
+      margin:0px;
+    }
+    input {
+      color:#08233e;
+      font:2.4em Futura, ‘Century Gothic’, AppleGothic, sans-serif;
+      font-size:70%;
+      padding:14px;
+      background-color:#ffcc00;
+      border:1px solid #ffcc00;
+      border-radius:10px;
+      border-bottom:1px solid #9f9f9f;
+      box-shadow:inset 0 1px 0 rgba(255,255,255,0.5);
+      cursor:pointer;
+      &:disabled {
+        background-color:#d2d2d2;
+      }
+    }
+    &.player1control {
+      background-color:#eecfef;
+    }
+    &.player2control {
+      background-color:#e1e1e1;
+    }
+  }
+}
