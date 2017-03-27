@@ -1,15 +1,22 @@
 
-  alert("hello");
-  var numOfWindows = 9;
+
+var numOfRows = 4;
+var numOfColumns = numOfRows;
+
+document.getElementById('board-wrapper').style.width = ( numOfRows * 129)+'px';
 
 var arrayDiv = new Array();
-for (var i = 0; i < numOfWindows; i++) {
+
+for (var j = 0; j < numOfColumns; j++) {
+  for (var i = 0; i < numOfRows; i++) {
     arrayDiv[i] = document.createElement('div');
     arrayDiv[i].id = 'block' + i;
-    arrayDiv[i].style.backgroundColor = 'green';
-    arrayDiv[i].className = 'block' + i;
+    arrayDiv[i].className = 'block';
 
-    arrayDiv[i].className = 'bordered';
-
-    document.body.appendChild(arrayDiv[i]);
+    document.getElementById('board-wrapper').appendChild(arrayDiv[i]);
+  }
+  document.getElementById('board-wrapper').appendChild(arrayDiv[j]);
 }
+
+
+
