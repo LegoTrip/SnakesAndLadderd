@@ -1,6 +1,6 @@
 
 
-var numOfRows = 4;
+var numOfRows = 10;
 var numOfColumns = numOfRows;
 
 document.getElementById('board-wrapper').style.width = ( numOfRows * 129)+'px';
