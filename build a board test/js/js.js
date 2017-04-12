@@ -1,6 +1,6 @@
 
 
-var numOfRows = 2;
+var numOfRows = 6;
 var numOfColumns = numOfRows;
 
 document.getElementById('board-wrapper').style.width = ( numOfRows * 129)+'px';
@@ -19,9 +19,7 @@ for (var j = 0; j < numOfColumns; j++) {
 }
 
 var elements = document.getElementsByClassName("block");
-var id = '';
 for(var i=0; i<elements.length; i++) {
-	//alert("here");
-    document.querySelector('div.block').id = 'block6'; //only adding to first??
+    var elem = elements[i];
+    elem.id = "block" + [i];
 }
-document.write(id);
