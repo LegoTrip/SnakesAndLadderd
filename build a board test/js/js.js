@@ -1,6 +1,10 @@
+var squarePromt=prompt("How Many Squares Per Row?","6");
+var num1 = parseInt(squarePromt);
+if (isNaN(num1) || (num1) > 12) {
+	num1 = "6";
+}
 
-
-var numOfRows = 6;
+var numOfRows = num1;
 var numOfColumns = numOfRows;
 
 document.getElementById('board-wrapper').style.width = ( numOfRows * 129)+'px';
