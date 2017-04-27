@@ -9,7 +9,6 @@ if (isNaN(num1) || (num1) > 12) {
 var numOfRows = num1;
 var numOfColumns = numOfRows;
 var totalNumOfBlocks = (numOfRows * numOfColumns)
-alert(totalNumOfBlocks);
 document.getElementById('board-wrapper').style.width = ( numOfRows * 129)+'px';
 
 //CREATE BOARD
@@ -28,6 +27,37 @@ for (var blockNumber = 0, n = true?num-1:0, d = true?-1:1; blockNumber < num; bl
   elem.id = "block" + [n];
 }
 
+//WRAP ROWS IN DIVS
+var rowdivs = document.getElementsByClassName("block");
+for(var i = 0; i < rowdivs.length; i+=numOfRows) {
+//    new_html = "<div id='slidesInner'>" + i + "</div>";
+  
+  // var wrapvar = 'block' + i;
+  // var wrapid = document.getElementById("block0");
+  // var content = document.createTextNode("<YOUR_CONTENT>");
+  // wrapid.insertBefore(content);
+  // alert(wrap1);
+
+
+
+
+  var j = i + numOfRows - 1;
+  var my_elem = document.getElementById('block' + j);
+  var wrapp = "rowrapper" + j;
+
+  var span = document.createElement("div");
+  //span.innerHTML = '*';
+  span.className = wrapp;
+
+  my_elem.parentNode.insertBefore(span, my_elem);
+
+
+
+
+
+}
+
+
 
 
 var numOfTokens = 1;
@@ -41,4 +71,4 @@ var arrayTokens = new Array();
 }
 
 var initialPosition = (numOfRows*numOfRows-numOfRows);
-alert(initialPosition);
+
