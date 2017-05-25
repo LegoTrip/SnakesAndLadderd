@@ -11,21 +11,54 @@ var numOfColumns = numOfRows;
 var totalNumOfBlocks = (numOfRows * numOfColumns)
 document.getElementById('board-wrapper').style.width = ( numOfRows * 129)+'px';
 
-//CREATE BOARD
 var arrayBoardBlocks = new Array();
-for (var columnBlocks = 0; columnBlocks < totalNumOfBlocks; columnBlocks++) {
-  arrayBoardBlocks[columnBlocks] = document.createElement('div');
-  arrayBoardBlocks[columnBlocks].className = 'block';
-  document.getElementById('board-wrapper').appendChild(arrayBoardBlocks[columnBlocks]);
+var blockCreation = '';
+
+//CREATE BLOCK 
+function createBlock() {  
+  arrayBoardBlocks[blockCreation] = document.createElement('div');
+  arrayBoardBlocks[blockCreation].className = 'block';
+  document.getElementById('board-wrapper').appendChild(arrayBoardBlocks[blockCreation]);
 }
 
-//GIVE EACH BLOCK IT'S OWN CLASS
+//CREATE ROW
+function createRow() {
+  for (var blockCreation = 0; blockCreation < numOfRows; blockCreation++) {
+    createBlock();
+  }
+}
+
+//CREATE COLUMNS
+function createColumn() {
+  for (var rowCreation = 0; rowCreation < numOfColumns; rowCreation++) {
+    var dv = document.createElement('div');
+    dv.className = "wrapp";
+    document.getElementById('board-wrapper').appendChild(dv);
+    dv.innerHTML = "Paragraph changed!";
+    createRow();
+  }  
+}
+
+//CREATE BOARD
+function createBoard() {
+  createColumn();
+}
+createBoard();
+
+
+
+
+//GIVE EACH BLOCK IT'S OWN ID
 var elements = document.getElementsByClassName("block");
 var num = totalNumOfBlocks;
 for (var blockNumber = 0, n = true?num-1:0, d = true?-1:1; blockNumber < num; blockNumber++, n+=d) {
   var elem = elements[blockNumber];
   elem.id = "block" + [n];
+  var generateHere = document.getElementById(elem.id);
+  generateHere.innerHTML = '<p>' + [n] + '</p>';
 }
+
+
 
 //WRAP ROWS IN DIVS
 var rowdivs = document.getElementsByClassName("block");
@@ -41,23 +74,26 @@ for(var i = 0; i < rowdivs.length; i+=numOfRows) {
 
 
 
-  var j = i + numOfRows - 1;
-  var my_elem = document.getElementById('block' + j);
-  var wrapp = "rowrapper" + j;
-
-  var span = document.createElement("div");
-  //span.innerHTML = '*';
-  span.className = wrapp;
-
-  my_elem.parentNode.insertBefore(span, my_elem);
 
 
 
+  // var j = i + numOfRows - 1;
+  // var my_elem = document.getElementById('block' + j);
+  // var wrapp = "rowrapper" + j;
 
+  // var span = document.createElement("div");
+  // //span.innerHTML = '*';
+  // span.className = wrapp;
+
+  // my_elem.parentNode.insertBefore(span, my_elem);
+
+
+  // var initialblock = document.getElementById('block' + (j - (j)));
+  // console.log(initialblock);
+  // var endblock = document.getElementById('block' + (j));
+  // console.log(endblock);
 
 }
-
-
 
 
 var numOfTokens = 1;
