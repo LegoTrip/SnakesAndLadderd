@@ -22,21 +22,20 @@ function createBlock() {
 }
 
 //CREATE ROW
-function createRow() {
+function createRow() {  
   for (var blockCreation = 0; blockCreation < numOfRows; blockCreation++) {
     createBlock();
-  }
+    console.log(blockCreation);
+  }  
 }
 
 //CREATE COLUMNS
-function createColumn() {
+function createColumn() {  
   for (var rowCreation = 0; rowCreation < numOfColumns; rowCreation++) {
-    var dv = document.createElement('div');
-    dv.className = "wrapp";
-    document.getElementById('board-wrapper').appendChild(dv);
-    dv.innerHTML = "Paragraph changed!";
+    document.body.innerHTML+='<div class="row">';    
+    document.body.innerHTML+='</div>';
     createRow();
-  }  
+  }    
 }
 
 //CREATE BOARD
@@ -44,9 +43,6 @@ function createBoard() {
   createColumn();
 }
 createBoard();
-
-
-
 
 //GIVE EACH BLOCK IT'S OWN ID
 var elements = document.getElementsByClassName("block");
@@ -60,40 +56,7 @@ for (var blockNumber = 0, n = true?num-1:0, d = true?-1:1; blockNumber < num; bl
 
 
 
-//WRAP ROWS IN DIVS
-var rowdivs = document.getElementsByClassName("block");
-for(var i = 0; i < rowdivs.length; i+=numOfRows) {
-//    new_html = "<div id='slidesInner'>" + i + "</div>";
-  
-  // var wrapvar = 'block' + i;
-  // var wrapid = document.getElementById("block0");
-  // var content = document.createTextNode("<YOUR_CONTENT>");
-  // wrapid.insertBefore(content);
-  // alert(wrap1);
 
-
-
-
-
-
-
-  // var j = i + numOfRows - 1;
-  // var my_elem = document.getElementById('block' + j);
-  // var wrapp = "rowrapper" + j;
-
-  // var span = document.createElement("div");
-  // //span.innerHTML = '*';
-  // span.className = wrapp;
-
-  // my_elem.parentNode.insertBefore(span, my_elem);
-
-
-  // var initialblock = document.getElementById('block' + (j - (j)));
-  // console.log(initialblock);
-  // var endblock = document.getElementById('block' + (j));
-  // console.log(endblock);
-
-}
 
 
 var numOfTokens = 1;
