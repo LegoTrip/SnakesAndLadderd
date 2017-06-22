@@ -29,10 +29,34 @@ function createRow() {
   // }  
   var rowArray  = [];
   for (var rowCreation = 0; rowCreation < numOfRows; rowCreation++) {
-    rowArray.push('<div id="block' + rowCreation + '" class="block"></div>');
+    //rowArray.push('<div id="block' + rowCreation + '" class="block"></div>');
+    rowArray.push('<div class="block"></div>');
   }  
   var rowShove = rowArray.join();
-  document.getElementById("board-wrapper").innerHTML = '<div class="row">' + rowShove + '</div>';
+
+
+  var columnArray  = [];
+  for (var columnCreation = 0; columnCreation < numOfColumns; columnCreation++) {
+    columnArray.push('<div class="row" id="row' + columnCreation + '">' + rowShove + '</div>');
+  }
+  var columnShove = columnArray.join();
+
+  document.getElementById("board-wrapper").innerHTML = columnShove;
+
+
+  // ADD A CLASS TO EVERY SECOND ROW TO REVERSE ORDER
+  numOfRows2 = (numOfRows) - 1;
+  for(var i = numOfRows2; i > -1; i--) {    
+    var everysecongrow = i % 2 === 0;
+    alert(everysecongrow);
+    if (everysecongrow) {
+      var leftrow = "row" + i;
+      var d = document.getElementById(leftrow);
+      d.className += " leftie";
+    }
+  }
+
+
 }
 
 
@@ -42,9 +66,9 @@ function createRow() {
 
 //CREATE COLUMNS
 function createColumn() {  
-  for (var columnCreation = 0; columnCreation < numOfColumns; columnCreation++) {
+  //for (var columnCreation = 0; columnCreation < numOfColumns; columnCreation++) {
     createRow();
-  }
+  //}
 }
 
 
@@ -66,14 +90,14 @@ function createBoard() {
 createBoard();
 
 //GIVE EACH BLOCK IT'S OWN ID
-// var elements = document.getElementsByClassName("block");
-// var num = totalNumOfBlocks;
-// for (var blockNumber = 0, n = true?num-1:0, d = true?-1:1; blockNumber < num; blockNumber++, n+=d) {
-//   var elem = elements[blockNumber];
-//   elem.id = "block" + [n];
-//   var generateHere = document.getElementById(elem.id);
-//   generateHere.innerHTML = '<p>' + [n] + '</p>';
-// }
+var elements = document.getElementsByClassName("block");
+var num = totalNumOfBlocks;
+for (var blockNumber = 0, n = true?num-1:0, d = true?-1:1; blockNumber < num; blockNumber++, n+=d) {
+  var elem = elements[blockNumber];
+  elem.id = "block" + [n];
+  var generateHere = document.getElementById(elem.id);
+  generateHere.innerHTML = '<p>' + [n] + '</p>';
+}
 
 
 
