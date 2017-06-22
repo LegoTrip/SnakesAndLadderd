@@ -23,20 +23,41 @@ function createBlock() {
 
 //CREATE ROW
 function createRow() {  
-  for (var blockCreation = 0; blockCreation < numOfRows; blockCreation++) {
-    createBlock();
-    console.log(blockCreation);
+  // for (var blockCreation = 0; blockCreation < numOfRows; blockCreation++) {
+  //   createBlock();
+  //   console.log(blockCreation);
+  // }  
+  var rowArray  = [];
+  for (var rowCreation = 0; rowCreation < numOfRows; rowCreation++) {
+    rowArray.push('<div id="block' + rowCreation + '" class="block"></div>');
   }  
+  var rowShove = rowArray.join();
+  document.getElementById("board-wrapper").innerHTML = '<div class="row">' + rowShove + '</div>';
 }
+
+
+
+
+
 
 //CREATE COLUMNS
 function createColumn() {  
-  for (var rowCreation = 0; rowCreation < numOfColumns; rowCreation++) {
-    document.body.innerHTML+='<div class="row">';    
-    document.body.innerHTML+='</div>';
+  for (var columnCreation = 0; columnCreation < numOfColumns; columnCreation++) {
     createRow();
-  }    
+  }
 }
+
+
+
+
+
+
+
+
+
+
+
+
 
 //CREATE BOARD
 function createBoard() {
@@ -45,14 +66,14 @@ function createBoard() {
 createBoard();
 
 //GIVE EACH BLOCK IT'S OWN ID
-var elements = document.getElementsByClassName("block");
-var num = totalNumOfBlocks;
-for (var blockNumber = 0, n = true?num-1:0, d = true?-1:1; blockNumber < num; blockNumber++, n+=d) {
-  var elem = elements[blockNumber];
-  elem.id = "block" + [n];
-  var generateHere = document.getElementById(elem.id);
-  generateHere.innerHTML = '<p>' + [n] + '</p>';
-}
+// var elements = document.getElementsByClassName("block");
+// var num = totalNumOfBlocks;
+// for (var blockNumber = 0, n = true?num-1:0, d = true?-1:1; blockNumber < num; blockNumber++, n+=d) {
+//   var elem = elements[blockNumber];
+//   elem.id = "block" + [n];
+//   var generateHere = document.getElementById(elem.id);
+//   generateHere.innerHTML = '<p>' + [n] + '</p>';
+// }
 
 
 
